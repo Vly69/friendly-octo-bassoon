@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Project</title>
+    <style>
+        header {
+            background-color: #f0f0f0; /* Background color for the header */
+            padding: 20px;
+            text-align: center;
+        }
+        input[type="text"], input[type="search"], input[type="button"] {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input[type="button"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        main {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+        <h1>Welcome!</h1>
+        <P>what do you want to search for?</P>
+        <!-- Search field -->
+        <input type="text" placeholder="Search..." id="searchField">
+        <input type="button" value="Search" onclick="search()">
+        <div class="buttons-container">
+        
+    </header>
+
+    <main>
+        <!-- Main content goes here -->
+        <p id="searchResult"></p>
+    </main>
+
+    <script>
+        function search() {
+            // Get the search query
+            var searchQuery = document.getElementById("searchField").value;
+            // Display search result
+            document.getElementById("searchResult").innerText = "Your search result for \"" + searchQuery + "\"";
+            // Update URL with search query
+            window.location.href = window.location.pathname + '?search=' + encodeURIComponent(searchQuery);
+            
+            // Update page source code with search query
+            document.getElementById("searchField").value = searchQuery;
+        }
+    </script>
+</body>
+</html>
